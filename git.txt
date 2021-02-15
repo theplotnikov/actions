@@ -1,0 +1,83 @@
+git config --global user.name "theplotnikov"
+git config --global user.email "theplotnikov@ya.ru"
+
+просмотр текущих параметров
+git config -l
+
+инициализация директории
+git init
+
+добавление файлов в stage перед коммитом
+git add .
+
+коммит с комментарием
+git commit -m "first commit. first version"
+
+история изменений
+git log
+
+крайние 2 изменения
+git log -2
+
+крайние 2 изменения детально
+git log -2 -p
+
+для файла на этапе стэйджинга отменяем изменения
+git checkout -- file1.txt
+
+отобразить изменения, которые будут внесены после коммита. проверяется после git add, но до git commit
+git diff --staged
+
+.gitignore
+в данном файле прописываем правила для игнора git'ом изменений
+к примеру:
+logs/ - игнорит папку logs
+*.log - игнорит все файлы с указанным расширением
+
+клонирование репозитория по ссылке URL
+git clone URL
+
+записать изменения из локального клона в удаленный репозиторий
+git push origin
+
+отобразить ссылки для связи локального репозитория с удалённым
+git remote -v
+
+создание нового локального репозитория
+git init myapp
+
+отобразить все брэнчи
+git branch
+
+создать брэнчи fix_error
+git branch fix_error
+
+переход на брэнч fix_error
+git checkout fix_error
+
+удалить брэнч
+git branch -d fix_error
+
+создать и сразу переключиться на созданный брэнч
+git checkout -b fix_error
+
+смержить ветку fix_error в ветку master можно находясь на ветке fix_error
+git merge fix_error
+
+переключиться на определённую версию (конкретный коммит) можно по хэшу. узнать хэш можно командой git log
+git checkout 6e1aa81f681c82332fbfac93fcbd48899a1b1662
+
+изменить данные в коммите, не добавляя новый
+git commit --amened
+
+откатить версию на более раннюю убив все вышестоящие. 2 - количество коммитов для отката начиная от текущего.
+git reset --hard HEAD~2
+
+оставить только текущую версию коммита, удалив из лога все остальные. 3 - количество коммитов на удаление.
+git reset --soft HEAD~3
+
+запушить локальный репозиторий с новым брэнчем, несуществующим на github
+git push --set-upstream origin newbranch
+
+удалить из github ненужный брэнч
+git push origin --delete newbranch
