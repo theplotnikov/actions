@@ -1,7 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
 name: My-GitHubActions-basics
-
+env:
+  APPLICATION_NAME: "MyFlask"
+  DEPLOY_PACKAGE_NAME: "flask-deploy-ver-${{ github.sha }}"
 on:
   push:
     branches: [ main ]
@@ -14,6 +16,11 @@ jobs:
     steps:
       - name: Print Hello Message
         run: echo "hello world from testing"
+      - name: Exec few commands
+        run: |
+          echo "Hello message1"
+          echo "Hello message2"
+          echo "Application name: ${{ env.APPLICATION_NAME }}"
 
   my-deploy:
     runs-on: ubuntu-latest
@@ -21,3 +28,5 @@ jobs:
     steps:
       - name: Print Hello Message
         run: echo "hello world from deploy"
+      - name: Exec few commands
+        run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
