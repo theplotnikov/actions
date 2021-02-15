@@ -39,7 +39,7 @@ jobs:
         run: |
           echo "VAR1 = ${{ env.VAR1 }}"
           echo "VAR2 = ${{ env.VAR2 }}"
-          echo "VAR3 = $LOCAL_VAR
+          echo "VAR3 = $LOCAL_VAR"
         env:
           LOCAL_VAR: This is local step var
       - name: Exec few commands
