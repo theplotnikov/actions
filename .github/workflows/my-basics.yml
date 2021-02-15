@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: My-GitHubActions-basics
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  my-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello Message
+        run: echo "hello world from testing"
+
+  my-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello Message
+        run: echo "hello world from deploy"
